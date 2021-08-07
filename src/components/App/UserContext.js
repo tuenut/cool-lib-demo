@@ -11,16 +11,22 @@ const defaultState = {
 
 export const LOGIN_USER_ACTION = "LOGIN_USER_ACTION";
 export const LOGOUT_USER_ACTION = "LOGOUT_USER_ACTION";
+export const VERIFY_USER_ACTION = "VERIFY_USER_ACTION";
 
-export const logInUser = (login, password) => ({
+export const logInUser = (login, password) => ( {
   type: LOGIN_USER_ACTION,
   login,
   password
-});
+} );
 
-export const logOutUser = () => ({
+export const logOutUser = () => ( {
   type: LOGOUT_USER_ACTION
-});
+} );
+
+export const verifyUser = () => ( {
+  type: VERIFY_USER_ACTION
+} )
+
 
 const userReducer = (state = defaultState, action) => {
   switch ( action.type ) {
@@ -28,24 +34,47 @@ const userReducer = (state = defaultState, action) => {
       const userData = USERS.find((user) => user.email === action.login);
 
       if ( userData ) {
-        return ({
+        //TODO only for local demo
+        localStorage.setItem("user", action.login);
+
+        return ( {
           ...state,
           authenticated: true,
           userData,
           error: null
-        });
+        } );
       }
       else {
-        return ({
+        return ( {
           ...state,
           error: 404
-        });
+        } );
       }
 
     case LOGOUT_USER_ACTION:
-      return ({
+      localStorage.removeItem("user");
+
+      return ( {
         ...defaultState,
-      });
+      } );
+
+    case VERIFY_USER_ACTION:
+      const storedUser = localStorage.getItem("user");
+
+      if ( storedUser ) {
+        const userData = USERS.find((user) => user.email === storedUser);
+
+        if ( userData ) {
+          return ( {
+            ...state,
+            userData,
+            authenticated: true,
+            error: null
+          } );
+        }
+      }
+
+      return state;
 
     default:
       return state;

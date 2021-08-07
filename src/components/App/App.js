@@ -3,7 +3,7 @@ import React from "react";
 import { createUseStyles } from "react-jss";
 
 import { TheLayout } from "../TheLayout";
-import { withUserContext } from "./Context";
+import { withUserContext, useUserContext, verifyUser } from "./UserContext";
 
 
 const useStyles = createUseStyles({
@@ -15,6 +15,11 @@ const useStyles = createUseStyles({
 
 export const App = withUserContext(() => {
   const classes = useStyles();
+  const [satte, dispatch] = useUserContext();
+
+  React.useEffect(() => {
+    dispatch(verifyUser());
+  }, []);
 
   return (
     <div className={classes.App}>

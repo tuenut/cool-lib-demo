@@ -6,7 +6,7 @@ import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 
 import { AUTHORS_PATH, BOOKS_PATH, HOME_PATH, LOGIN_PATH, PROFILE_PATH } from "../../settings/routesPath";
 
-import { logOutUser, useUserContext } from "../App/Context";
+import { logOutUser, useUserContext } from "../App/UserContext";
 import { UserDropdownMenu } from "./UserDropdownMenu";
 
 

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { Carousel, Col, Row } from "react-bootstrap";
 import { BOOK_DETAILS_PATTERN_PATH, ID_REPLACER } from "../../settings/routesPath";
 import { BOOKS } from "../../testData";
-import { useUserContext } from "../App/Context";
+import { useUserContext } from "../App/UserContext";
 
 
 export const Home = () => {

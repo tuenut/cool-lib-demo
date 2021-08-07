@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom";
 
 import { Alert, Button, Col, Form, Row } from "react-bootstrap";
 
-import { logInUser, useUserContext } from "../App/Context";
+import { logInUser, useUserContext } from "../App/UserContext";
 import { HOME_PATH } from "../../settings/routesPath";
 
 
