@@ -1,17 +1,17 @@
 import React from "react";
 
-import { Redirect } from "react-router-dom";
+import { Redirect, Link } from "react-router-dom";
 
 import { Alert, Button, Col, Form, Row } from "react-bootstrap";
 
-import { withAuthRequired } from "../_lib";
+import { withNotAuthenticated } from "../_lib";
 
 import { logInUser, useUserContext } from "../User/UserContext";
 
-import { HOME_PATH } from "../../settings/routesPath";
+import { HOME_PATH, SIGN_UP } from "../../settings/routesPath";
 
 
-export const LogIn = withAuthRequired(() => {
+export const LogIn = withNotAuthenticated(() => {
   const [login, setLogin] = React.useState("");
   const [password, setPassword] = React.useState("");
 
@@ -72,9 +72,18 @@ export const LogIn = withAuthRequired(() => {
             </Alert>
           )}
 
-          <Button variant="primary" type={"submit"}>
+          <Button className="mr-3" variant="primary" type={"submit"}>
             Войти
           </Button>
+
+          <Link
+            to={SIGN_UP}
+            component={Button}
+            className="mx-3"
+            variant="light"
+          >
+            <b>Еще нет аккаунта?</b>
+          </Link>
         </Form>
 
       </Col>

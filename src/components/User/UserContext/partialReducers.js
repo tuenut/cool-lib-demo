@@ -1,4 +1,4 @@
-import { USERS } from "../../../testData";
+import { NEW_USER, USERS } from "../../../testData";
 import { defaultState } from "./reducer";
 
 
@@ -50,6 +50,24 @@ export const reduceVerifyUserAction = (state, action) => {
   }
 
   return state;
+}
+
+export const reduceRegisterNewUserAction = (state, action) => {
+  const newUser = Object.assign(
+    {...NEW_USER},
+    ...Object.entries(action)
+      .filter(([key, val]) => key !== "type")
+      .map(([key, val]) => ({[key]: val}))
+  );
+
+  USERS.push(newUser);
+
+  return ({
+    ...state,
+    userData: newUser,
+    authenticated: true,
+    error: null
+  })
 };
 
 

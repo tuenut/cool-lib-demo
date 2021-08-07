@@ -7,5 +7,6 @@ export {
   logOutUser,
   removeFavoriteBook,
   removeFriend,
-  verifyUser
+  verifyUser,
+  registerNewUser
 } from "./actions";
