@@ -15,8 +15,9 @@ import { BookAuthenticatedCard } from "../Books/BookCard";
 export const Favorites = withAuthRequired(() => {
   const [{userData}, dispatch] = useUserContext();
 
-  const favoriteBooks = BOOKS.filter((book) =>
-    userData.favoriteBooks.includes(book.id));
+  const favoriteBooks = userData.favoriteBooks.length
+    ? BOOKS.filter((book) => userData.favoriteBooks.includes(book.id))
+    : null;
 
   return (
     <>
@@ -27,7 +28,7 @@ export const Favorites = withAuthRequired(() => {
       </Row>
 
       <Row className={"d-flex flex-wrap"}>
-        {favoriteBooks.length ? (
+        {favoriteBooks ? (
           favoriteBooks.map((book) => (
             <BookAuthenticatedCard key={book.id} book={book}/>
           ))

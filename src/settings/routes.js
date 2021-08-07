@@ -9,7 +9,7 @@ import {
   LOGIN_PATH,
   MESSAGES_PATH,
   PROFILE_PATH,
-  SIGN_UP
+  SIGN_UP, USERS_PATH
 } from "./routesPath";
 
 import { Home } from "../components/Pages";
@@ -18,6 +18,7 @@ import { AuthorDetails, Authors } from "../components/Authors";
 import { SignUp } from "../components/Pages/SignUp";
 import { LogIn } from "../components/Pages/LogIn";
 import { Favorites, Friends, Messages, Profile } from "../components/User";
+import { Users } from "../components/Users";
 
 
 export const routes = [
@@ -94,6 +95,13 @@ export const routes = [
     name: "Сообщения",
     title: "Сообщения",
     component: Messages
+  },
+  {
+    path: USERS_PATH,
+    exact: true,
+    name: "Пользователи",
+    title: "Пользователи",
+    component: Users
   },
 ];
 

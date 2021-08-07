@@ -103,8 +103,8 @@ export const reduceAddFriendAction = (state, action) => {
     ...state,
     userData: {
       ...state.userData,
-      fiends: [
-        ...state.userData.fiends,
+      friends: [
+        ...state.userData.friends,
         action.userId
       ],
     }
@@ -116,7 +116,7 @@ export const reduceRemoveFriendAction = (state, action) => {
     ...state,
     userData: {
       ...state.userData,
-      fiends: state.userData.fiends
+      friends: state.userData.friends
         .filter((bookId) => bookId !== action.userId)
     }
   } );

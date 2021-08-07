@@ -136,7 +136,7 @@ export const USERS = [
     info: "Админ всея сайта",
     phone: "+1234567890",
     favoriteBooks: [],
-    fiends: [],
+    friends: [],
   },
   {
     id: 2,
@@ -146,7 +146,7 @@ export const USERS = [
     info: "Жалкий юзер ни на что не годный",
     phone: "+0987654321",
     favoriteBooks: [],
-    fiends: [],
+    friends: [],
   },
 ];
 
@@ -158,5 +158,5 @@ export const NEW_USER = {
   info: null,
   phone: null,
   favoriteBooks: [],
-  fiends: [],
+  friends: [],
 };
