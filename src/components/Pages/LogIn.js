@@ -4,14 +4,18 @@ import { Redirect } from "react-router-dom";
 
 import { Alert, Button, Col, Form, Row } from "react-bootstrap";
 
+import { withAuthRequired } from "../_lib";
+
 import { logInUser, useUserContext } from "../User/UserContext";
+
 import { HOME_PATH } from "../../settings/routesPath";
 
 
-export const LogIn = () => {
-  const [{authenticated, error}, dispatch] = useUserContext();
+export const LogIn = withAuthRequired(() => {
   const [login, setLogin] = React.useState("");
   const [password, setPassword] = React.useState("");
+
+  const [{error}, dispatch] = useUserContext();
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -26,12 +30,6 @@ export const LogIn = () => {
 
   const handleOnChangeEmail = (e) => setLogin(e.target.value);
   const handleOnChangePassword = (e) => setPassword(e.target.value);
-
-  if ( authenticated ) {
-    return (
-      <Redirect to={HOME_PATH}/>
-    )
-  }
 
   return (
     <Row className={"my-5 py-5"}>
@@ -82,5 +80,5 @@ export const LogIn = () => {
       </Col>
     </Row>
   );
-};
+});
 

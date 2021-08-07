@@ -33,7 +33,7 @@ export const reduceLogoutUserAction = (state, action) => {
   } );
 };
 
-export const reduceVerifyUserAction = (sate, action) => {
+export const reduceVerifyUserAction = (state, action) => {
   const storedUser = localStorage.getItem("user");
 
   if ( storedUser ) {

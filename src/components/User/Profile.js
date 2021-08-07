@@ -1,19 +1,18 @@
 import React from "react";
 
-import { Card, Col, ListGroup, Row } from "react-bootstrap";
-import { useUserContext } from "./UserContext";
-import { HOME_PATH, PROFILE_EDIT_PATH } from "../../settings/routesPath";
 import { Link, Redirect } from "react-router-dom";
 
+import { Card, Col, ListGroup, Row } from "react-bootstrap";
 
-export const Profile = () => {
-  const [{authenticated, userData}, dispatch] = useUserContext();
+import { withAuthRequired } from "../_lib";
 
-  if ( !authenticated ) {
-    return (
-      <Redirect to={HOME_PATH}/>
-    )
-  }
+import { useUserContext } from "./UserContext";
+
+import { HOME_PATH, PROFILE_EDIT_PATH } from "../../settings/routesPath";
+
+
+export const Profile = withAuthRequired(() => {
+  const [{userData}, dispatch] = useUserContext();
 
   return (
     <Row>
@@ -81,5 +80,5 @@ export const Profile = () => {
       </Col>
     </Row>
   );
-};
+});
 

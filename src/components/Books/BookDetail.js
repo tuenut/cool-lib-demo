@@ -6,16 +6,18 @@ import { Button, Col, Row } from "react-bootstrap";
 
 import { ID_KEY } from "../../settings/routesPath";
 import { BOOKS } from "../../testData";
-import { useUserContext } from "../User/UserContext";
+import { addFavoriteBook, useUserContext } from "../User/UserContext";
 
 
 export const BookDetail = () => {
-  const [{authenticated}] = useUserContext();
+  const [{authenticated}, dispatch] = useUserContext();
 
   const match = useRouteMatch();
 
   const bookId = match.params[ID_KEY];
   const book = BOOKS.find((book) => book.id === parseInt(bookId));
+
+  const hendleOnAddToFavorites = () => dispatch(addFavoriteBook(bookId));
 
   return (
     <>
@@ -33,8 +35,17 @@ export const BookDetail = () => {
       {authenticated && (
         <Row as={"section"}>
           <Col>
-            <Button>
+            <Button className={"mx-1 h-100"}>
               Читать
+            </Button>
+
+            <Button
+              className={"mx-1 h-100"}
+              variant={"warning"}
+              onClick={hendleOnAddToFavorites}
+            >
+              <span className={"h3"}>★ </span>
+              <span className={"align-text-bottom"}>В избранное</span>
             </Button>
           </Col>
         </Row>

@@ -1,11 +1,13 @@
 import React from "react";
 
+import { withNotAuthenticated } from "../_lib";
 
-export const SignUp = () => {
+
+export const SignUp = withNotAuthenticated(() => {
   return (
     <>
 
     </>
   );
-};
+});
 
