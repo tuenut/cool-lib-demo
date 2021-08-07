@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Card, Col, ListGroup, Row } from "react-bootstrap";
-import { useUserContext } from "../App/UserContext";
+import { useUserContext } from "./UserContext";
 import { HOME_PATH, PROFILE_EDIT_PATH } from "../../settings/routesPath";
 import { Link, Redirect } from "react-router-dom";
 

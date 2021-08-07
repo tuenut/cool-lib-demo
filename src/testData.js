@@ -134,7 +134,9 @@ export const USERS = [
     sex: "male",
     email: "admin@cool-lib.org",
     info: "Админ всея сайта",
-    phone: "+1234567890"
+    phone: "+1234567890",
+    favoriteBooks:[],
+    fiends: [],
   },
   {
     id: 2,
@@ -142,6 +144,8 @@ export const USERS = [
     sex: "male",
     email: "user@cool-lib.org",
     info: "Жалкий юзер ни на что не годный",
-    phone: "+0987654321"
+    phone: "+0987654321",
+    favoriteBooks:[],
+    fiends: [],
   },
 ];

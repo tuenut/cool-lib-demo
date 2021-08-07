@@ -3,7 +3,7 @@ import React from "react";
 import { createUseStyles } from "react-jss";
 
 import { TheLayout } from "../TheLayout";
-import { withUserContext, useUserContext, verifyUser } from "./UserContext";
+import { withUserContext, useUserContext, verifyUser } from "../User/UserContext";
 
 
 const useStyles = createUseStyles({
