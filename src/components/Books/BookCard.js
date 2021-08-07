@@ -8,7 +8,7 @@ import { BOOK_DETAILS_PATTERN_PATH, ID_REPLACER } from "../../settings/routesPat
 
 
 export const BookCard = ({book}) => (
-  <Col xs={3} as={"section"} key={book.id}>
+  <Col xs={3} as={"section"} className={"my-2"}>
     <Card>
       <Card.Img
         variant="top"

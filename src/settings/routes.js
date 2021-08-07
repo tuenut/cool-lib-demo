@@ -3,14 +3,21 @@ import {
   AUTHORS_PATH,
   BOOK_DETAILS_PATTERN_PATH,
   BOOKS_PATH,
-  HOME_PATH, LOGIN_PATH, PROFILE_PATH, SIGN_UP
+  FAVORITES_PATH,
+  FRIENDS_PATH,
+  HOME_PATH,
+  LOGIN_PATH,
+  MESSAGES_PATH,
+  PROFILE_PATH,
+  SIGN_UP
 } from "./routesPath";
 
-import { Home, Profile } from "../components/Pages";
+import { Home } from "../components/Pages";
 import { BookDetail, Books } from "../components/Books";
 import { AuthorDetails, Authors } from "../components/Authors";
 import { SignUp } from "../components/Pages/SignUp";
 import { LogIn } from "../components/Pages/LogIn";
+import { Favorites, Friends, Messages, Profile } from "../components/User";
 
 
 export const routes = [
@@ -67,7 +74,27 @@ export const routes = [
     title: "Мой профиль",
     component: Profile
   },
-
+  {
+    path: FRIENDS_PATH,
+    exact: true,
+    name: "Друзья",
+    title: "Друзья",
+    component: Friends
+  },
+  {
+    path: FAVORITES_PATH,
+    exact: true,
+    name: "Избранное",
+    title: "Избранное",
+    component: Favorites
+  },
+  {
+    path: MESSAGES_PATH,
+    exact: true,
+    name: "Сообщения",
+    title: "Сообщения",
+    component: Messages
+  },
 ];
 
 export default routes;

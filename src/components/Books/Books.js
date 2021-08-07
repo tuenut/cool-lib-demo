@@ -17,7 +17,7 @@ export const Books = () => {
 
       <Row className={"d-flex flex-wrap"}>
         {BOOKS.map((book) => (
-          <BookCard book={book}/>
+          <BookCard key={book.id} book={book}/>
         ))}
       </Row>
     </>

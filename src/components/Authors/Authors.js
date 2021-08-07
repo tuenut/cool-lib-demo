@@ -3,7 +3,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import { Card, Col, Row } from "react-bootstrap";
-import { AUTHOR_DETAILS_PATTERN_PATH, ID_REPLACER } from "../../settings/routesPath";
+import {
+  AUTHOR_DETAILS_PATTERN_PATH,
+  ID_REPLACER
+} from "../../settings/routesPath";
 import { AUTHORS } from "../../testData";
 
 
@@ -18,7 +21,7 @@ export const Authors = () => {
 
       <Row className={"d-flex flex-wrap"}>
         {AUTHORS.map((author) => (
-          <Col xs={3} as={"section"} key={author.id}>
+          <Col xs={3} as={"section"} key={author.id} className={"my-2"}>
             <Card>
               <Card.Img
                 variant="top"
@@ -34,7 +37,11 @@ export const Authors = () => {
                 </Card.Title>
 
                 <Card.Text>
-                  {}
+                  <span className={"text-muted"}>Родился: </span>
+                  {author.dateOfBirth}
+                  <br/>
+                  <span className={"text-muted"}>Умер: </span>
+                  {author.dateOfDeath}
                 </Card.Text>
 
                 <Link

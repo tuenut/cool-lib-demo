@@ -17,3 +17,7 @@ export const PROFILE_EDIT_PATH = `${PROFILE_PATH}/edit`;
 
 export const USERS_PATH = "/users";
 export const USER_DETAILS_PATTERN_PATH = `${USERS_PATH}/${ID_REPLACER}`;
+
+export const FAVORITES_PATH = "/favorites";
+export const MESSAGES_PATH = "/messages";
+export const FRIENDS_PATH = "/friends";

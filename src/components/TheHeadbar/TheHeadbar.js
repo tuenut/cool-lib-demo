@@ -7,10 +7,12 @@ import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import { AUTHORS_PATH, BOOKS_PATH, HOME_PATH, LOGIN_PATH, PROFILE_PATH } from "../../settings/routesPath";
 
 import { logOutUser, useUserContext } from "../App/Context";
+import { UserDropdownMenu } from "./UserDropdownMenu";
 
 
 export const TheHeadbar = () => {
-  const [{authenticated, userData}, dispatch] = useUserContext();
+  const [{authenticated}] = useUserContext();
+
   return (
     <Navbar fixed={"top"} bg="dark" variant="dark">
       <Container>
@@ -22,15 +24,7 @@ export const TheHeadbar = () => {
         </Nav>
         <Nav>
           {authenticated ? (
-            <NavDropdown title={userData.username} id="basic-nav-dropdown">
-              <Link to={PROFILE_PATH} component={NavDropdown.Item}>
-                Мой профиль
-              </Link>
-              <NavDropdown.Divider/>
-              <NavDropdown.Item onSelect={() => dispatch(logOutUser())}>
-                Выйти
-              </NavDropdown.Item>
-            </NavDropdown>
+            <UserDropdownMenu/>
           ) : (
             <Link to={LOGIN_PATH} component={Nav.Link}>
               Войти

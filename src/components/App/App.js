@@ -18,8 +18,7 @@ export const App = withUserContext(() => {
 
   return (
     <div className={classes.App}>
-      <TheLayout/>}
+      <TheLayout/>
     </div>
   );
 });
-
