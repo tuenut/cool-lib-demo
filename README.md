@@ -1,3 +1,8 @@
+# About this repo
+This is a demo of a simple library site. Created in educational purposes.
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
