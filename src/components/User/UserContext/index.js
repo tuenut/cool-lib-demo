@@ -8,5 +8,6 @@ export {
   removeFavoriteBook,
   removeFriend,
   verifyUser,
-  registerNewUser
+  registerNewUser,
+  editProfile
 } from "./actions";

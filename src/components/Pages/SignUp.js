@@ -17,6 +17,13 @@ export const SignUp = withouthAuthRequired(() => {
 
   const [, dispatch] = useUserContext();
 
+  const handleOnChangeEmail = (e) => setLogin(e.target.value);
+  const handleOnChangePassword = (e) => setPassword(e.target.value);
+  const handleOnChangeUserName = (e) => setUserName(e.target.value);
+  const handleOnChangeUserInfo = (e) => setUserInfo(e.target.value);
+  const handleOnChangeUserPhone = (e) => setUserPhone(e.target.value);
+  const handleOnChangeUserSex = (e) => setUserSex(e.target.value);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     event.stopPropagation();
@@ -31,13 +38,6 @@ export const SignUp = withouthAuthRequired(() => {
       ));
     }
   };
-
-  const handleOnChangeEmail = (e) => setLogin(e.target.value);
-  const handleOnChangePassword = (e) => setPassword(e.target.value);
-  const handleOnChangeUserName = (e) => setUserName(e.target.value);
-  const handleOnChangeUserInfo = (e) => setUserInfo(e.target.value);
-  const handleOnChangeUserPhone = (e) => setUserPhone(e.target.value);
-  const handleOnChangeUserSex = (e) => setUserSex(e.target.value);
 
   return (
     <Row className={"my-5 py-5"}>

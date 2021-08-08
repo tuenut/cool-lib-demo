@@ -1,6 +1,6 @@
 import {
   ADD_BOOK_TO_FAVORITES_ACTION,
-  ADD_FRIEND_ACTION,
+  ADD_FRIEND_ACTION, EDIT_PROFILE_DATA_ACTION,
   LOGIN_USER_ACTION,
   LOGOUT_USER_ACTION,
   REGISTER_NEW_USER_ACTION,
@@ -26,6 +26,10 @@ export const registerNewUser =
     type: REGISTER_NEW_USER_ACTION,
     login, username, password, sex, phone, info
   } );
+export const editProfile = (data) => ( {
+  type: EDIT_PROFILE_DATA_ACTION,
+  data
+} );
 
 
 export const addFavoriteBook = (bookId) => ( {

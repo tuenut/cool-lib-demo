@@ -7,7 +7,7 @@ import {
   FRIENDS_PATH,
   HOME_PATH,
   LOGIN_PATH,
-  MESSAGES_PATH,
+  MESSAGES_PATH, PROFILE_EDIT_PATH,
   PROFILE_PATH,
   SIGN_UP, USERS_PATH
 } from "./routesPath";
@@ -19,6 +19,7 @@ import { SignUp } from "../components/Pages/SignUp";
 import { LogIn } from "../components/Pages/LogIn";
 import { Favorites, Friends, Messages, Profile } from "../components/User";
 import { Users } from "../components/Users";
+import { EditProfile } from "../components/User/EditProfile";
 
 
 export const routes = [
@@ -81,6 +82,13 @@ export const routes = [
     name: "Друзья",
     title: "Друзья",
     component: Friends
+  },
+  {
+    path: PROFILE_EDIT_PATH,
+    exact: true,
+    name: "Редактировать профиль",
+    title: "Редактировать профиль",
+    component: EditProfile
   },
   {
     path: FAVORITES_PATH,

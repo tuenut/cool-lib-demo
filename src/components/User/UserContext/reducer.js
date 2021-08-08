@@ -1,6 +1,6 @@
 import {
   ADD_BOOK_TO_FAVORITES_ACTION,
-  ADD_FRIEND_ACTION,
+  ADD_FRIEND_ACTION, EDIT_PROFILE_DATA_ACTION,
   LOGIN_USER_ACTION,
   LOGOUT_USER_ACTION,
   REGISTER_NEW_USER_ACTION,
@@ -10,7 +10,7 @@ import {
 } from "./actionTypes";
 import {
   reduceAddFavoriteBookAction,
-  reduceAddFriendAction,
+  reduceAddFriendAction, reduceEditProfileAction,
   reduceLoginUserAction,
   reduceLogoutUserAction,
   reduceRegisterNewUserAction,
@@ -39,6 +39,9 @@ export const userReducer = (state = defaultState, action) => {
 
     case REGISTER_NEW_USER_ACTION:
       return reduceRegisterNewUserAction(state, action);
+
+    case EDIT_PROFILE_DATA_ACTION:
+      return reduceEditProfileAction(state, action);
 
     case ADD_BOOK_TO_FAVORITES_ACTION:
       return reduceAddFavoriteBookAction(state, action);

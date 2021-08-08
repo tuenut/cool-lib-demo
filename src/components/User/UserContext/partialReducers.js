@@ -50,7 +50,7 @@ export const reduceVerifyUserAction = (state, action) => {
   }
 
   return state;
-}
+};
 
 export const reduceRegisterNewUserAction = (state, action) => {
   const newUser = Object.assign(
@@ -69,6 +69,11 @@ export const reduceRegisterNewUserAction = (state, action) => {
     error: null
   })
 };
+
+export const reduceEditProfileAction = (state, action) => ({
+  ...state,
+  userData: {...state.userData, ...action.data}
+});
 
 
 // FAVORITE BOOKS
