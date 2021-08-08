@@ -23,7 +23,7 @@ export const AuthorDetails = () => {
       </Row>
 
       <Row as={"section"} className={"px-5 m-5"}>
-        <Col as={"article"}>
+        <Col as={"article"} xs={8} className={"m-auto"}>
           <p>{author.bio}</p>
         </Col>
       </Row>

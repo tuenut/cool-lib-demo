@@ -12,65 +12,9 @@ import {
 } from "../User/UserContext";
 
 
-export const BookAuthenticatedCard = ({book}) => {
-  const [{authenticated, userData}, dispatch] = useUserContext();
-
-  const inFavoties =
-    userData.favoriteBooks.find((favBook) => favBook === book.id);
-
-  const hendleOnAddToFavorites = () => {
-    if ( inFavoties ) {
-      dispatch(removeFavoriteBook(book.id));
-    }
-    else {
-      dispatch(addFavoriteBook(book.id));
-    }
-  }
-
-  return (
-    <Col xs={3} as={"section"} className={"my-2"}>
-      <Card>
-        <Card.Img
-          variant="top"
-          src=""
-          height={"200px"}
-          width={"150px"}
-          className="d-block bg-secondary m-auto"
-        />
-
-        <Card.Body>
-          <Card.Title>
-            {book.title}
-          </Card.Title>
-
-          <Card.Text>
-            {book.author.fullName}
-          </Card.Text>
-
-          <Link
-            to={BOOK_DETAILS_PATTERN_PATH.replace(ID_REPLACER, book.id)}
-            component={Card.Link}
-            className={"mr-2"}
-          >
-            Подробнее...
-          </Link>
-          <Button
-            variant={inFavoties ? "warning" : "secondary"}
-            className={"mx-2 py-0 px-1"}
-            onClick={hendleOnAddToFavorites}
-          >
-            <span className={"h3"}>★ </span>
-          </Button>
-        </Card.Body>
-      </Card>
-    </Col>
-  );
-};
-
-
-export const BookUnauthenticatedCard = ({book}) => (
-  <Col xs={3} as={"section"} className={"my-2"}>
-    <Card>
+const DeafultBookCard = ({book, Actions}) => (
+  <Col xs={3} as={"section"} className={"my-2 align-items-stretch"}>
+    <Card className={"h-100"}>
       <Card.Img
         variant="top"
         src=""
@@ -87,16 +31,67 @@ export const BookUnauthenticatedCard = ({book}) => (
         <Card.Text>
           {book.author.fullName}
         </Card.Text>
-
-        <Link
-          to={BOOK_DETAILS_PATTERN_PATH.replace(ID_REPLACER, book.id)}
-          component={Card.Link}
-        >
-          Подробнее...
-        </Link>
       </Card.Body>
+      {Actions && (
+        <Card.Footer>
+          <Actions book={book}/>
+        </Card.Footer>
+      )}
     </Card>
   </Col>
+);
+
+const AuthenticatedActions = ({book}) => {
+  const [{userData}, dispatch] = useUserContext();
+
+  const inFavoties =
+    userData.favoriteBooks.find((favBook) => favBook === book.id);
+
+  const hendleOnAddToFavorites = () => {
+    if ( inFavoties ) {
+      dispatch(removeFavoriteBook(book.id));
+    }
+    else {
+      dispatch(addFavoriteBook(book.id));
+    }
+  };
+
+  return (
+    <>
+      <Link
+        to={BOOK_DETAILS_PATTERN_PATH.replace(ID_REPLACER, book.id)}
+        component={Card.Link}
+        className={"mr-2"}
+      >
+        Подробнее...
+      </Link>
+      <Button
+        variant={inFavoties ? "warning" : "secondary"}
+        className={"ms-3 py-0 px-1"}
+        onClick={hendleOnAddToFavorites}
+      >
+        ★ {!inFavoties ? "В избранное" : "В избранном"}
+      </Button>
+    </>
+  );
+};
+
+const UnauthenticatedActions = ({book}) => (
+  <Link
+    to={BOOK_DETAILS_PATTERN_PATH.replace(ID_REPLACER, book.id)}
+    component={Card.Link}
+  >
+    Подробнее...
+  </Link>
+);
+
+
+export const BookAuthenticatedCard = ({book}) => (
+  <DeafultBookCard book={book} Actions={AuthenticatedActions}/>
+);
+
+export const BookUnauthenticatedCard = ({book}) => (
+  <DeafultBookCard book={book} Actions={UnauthenticatedActions}/>
 );
 
 
@@ -108,4 +103,4 @@ export const BookCard = ({book}) => {
   } else {
     return ( <BookUnauthenticatedCard book={book}/> );
   }
-}
+};

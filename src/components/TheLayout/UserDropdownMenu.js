@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import { NavDropdown } from "react-bootstrap";
 
-import { logOutUser, useUserContext } from "../User/UserContext";
+import { logOutUser, useUserContext } from "../User/UserContext/index";
 
 import { FAVORITES_PATH, FRIENDS_PATH, HOME_PATH, MESSAGES_PATH, PROFILE_PATH } from "../../settings/routesPath";
 import { Nav } from "react-bootstrap/esm/index";

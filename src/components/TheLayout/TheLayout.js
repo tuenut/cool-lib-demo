@@ -6,9 +6,9 @@ import { createUseStyles } from "react-jss";
 
 import { Container, Row, Col, Button } from "react-bootstrap";
 
-import { TheHeadbar } from "../TheHeadbar";
+import { TheHeadbar } from "./TheHeadbar";
 // import { TheSidebar } from "../TheSidebar";
-import { TheContent } from "../TheContent";
+import { TheContent } from "./TheContent";
 
 
 const useStyles = createUseStyles({
@@ -40,7 +40,7 @@ export const TheLayout = () => {
     <>
       <TheHeadbar/>
 
-      <Container fluid className={"p-0 w-100 "}>
+      <Container fluid className={"w-100 "}>
         <Row className={"mb-5"}>
         </Row>
 
@@ -56,7 +56,7 @@ export const TheLayout = () => {
             {/*<TheSidebar/>*/}
           </Col>
 
-          <Col className={"mt-2"}>
+          <Col className={"m-2 pt-3 px-5"} as={"main"}>
             <TheContent/>
           </Col>
 

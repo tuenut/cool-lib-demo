@@ -34,7 +34,7 @@ const UserActions = () => {
     <Card.Footer>
       <Button
         variant={inFriends ? "danger" : "success"}
-        className={"mx-2 py-0 px-1"}
+        className={"m-2"}
         onClick={handleOnAddToFriends}
       >
         {inFriends ? "Удалить друга" : "Добавить друга"}

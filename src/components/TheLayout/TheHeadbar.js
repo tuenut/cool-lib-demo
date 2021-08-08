@@ -8,7 +8,7 @@ import { Navbar, Nav, Container } from "react-bootstrap";
 
 import { AUTHORS_PATH, BOOKS_PATH, HOME_PATH, LOGIN_PATH } from "../../settings/routesPath";
 
-import { useUserContext } from "../User/UserContext";
+import { useUserContext } from "../User/UserContext/index";
 import { UserDropdownMenu } from "./UserDropdownMenu";
 
 

@@ -22,7 +22,7 @@ export const Authors = () => {
       <Row className={"d-flex flex-wrap"}>
         {AUTHORS.map((author) => (
           <Col xs={3} as={"section"} key={author.id} className={"my-2"}>
-            <Card>
+            <Card className={"h-100"}>
               <Card.Img
                 variant="top"
                 src=""
@@ -43,14 +43,16 @@ export const Authors = () => {
                   <span className={"text-muted"}>Умер: </span>
                   {author.dateOfDeath}
                 </Card.Text>
+              </Card.Body>
 
+              <Card.Footer>
                 <Link
                   to={AUTHOR_DETAILS_PATTERN_PATH.replace(ID_REPLACER, author.id)}
                   component={Card.Link}
                 >
                   Подробнее...
                 </Link>
-              </Card.Body>
+              </Card.Footer>
             </Card>
           </Col>
         ))}
