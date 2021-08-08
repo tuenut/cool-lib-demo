@@ -2,19 +2,30 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
-import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
+import { createUseStyles } from "react-jss";
 
-import { AUTHORS_PATH, BOOKS_PATH, HOME_PATH, LOGIN_PATH, PROFILE_PATH } from "../../settings/routesPath";
+import { Navbar, Nav, Container } from "react-bootstrap";
 
-import { logOutUser, useUserContext } from "../User/UserContext";
+import { AUTHORS_PATH, BOOKS_PATH, HOME_PATH, LOGIN_PATH } from "../../settings/routesPath";
+
+import { useUserContext } from "../User/UserContext";
 import { UserDropdownMenu } from "./UserDropdownMenu";
+
+
+const useStyles = createUseStyles({
+  headbar: {
+    height: "4rem"
+  }
+});
 
 
 export const TheHeadbar = () => {
   const [{authenticated}] = useUserContext();
 
+  const classes = useStyles();
+
   return (
-    <Navbar fixed={"top"} bg="dark" variant="dark">
+    <Navbar fixed={"top"} bg="dark" variant="dark" className={classes.headbar}>
       <Container>
         <Navbar.Brand to={HOME_PATH}>Уютненько</Navbar.Brand>
         <Nav className="me-auto">

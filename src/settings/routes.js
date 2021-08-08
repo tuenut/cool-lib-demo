@@ -1,6 +1,6 @@
 import {
   AUTHOR_DETAILS_PATTERN_PATH,
-  AUTHORS_PATH,
+  AUTHORS_PATH, BOOK_CONTENT_PATH,
   BOOK_DETAILS_PATTERN_PATH,
   BOOKS_PATH,
   FAVORITES_PATH,
@@ -20,6 +20,7 @@ import { LogIn } from "../components/Pages/LogIn";
 import { Favorites, Friends, Messages, Profile } from "../components/User";
 import { Users } from "../components/Users";
 import { EditProfile } from "../components/User/EditProfile";
+import { BookContent } from "../components/Books/BookContent";
 
 
 export const routes = [
@@ -34,6 +35,11 @@ export const routes = [
     path: BOOK_DETAILS_PATTERN_PATH,
     name: "Информация по книге",
     component: BookDetail
+  },
+  {
+    path: BOOK_CONTENT_PATH,
+    name: "Читать книгу",
+    component: BookContent
   },
   {
     path: BOOKS_PATH,

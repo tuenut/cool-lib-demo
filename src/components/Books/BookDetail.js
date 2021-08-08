@@ -1,10 +1,11 @@
 import React from "react";
 
 import { useRouteMatch } from "react-router";
+import { Link } from "react-router-dom";
 
 import { Button, Col, Row } from "react-bootstrap";
 
-import { ID_KEY } from "../../settings/routesPath";
+import { BOOK_CONTENT_PATH, ID_KEY, ID_REPLACER } from "../../settings/routesPath";
 import { BOOKS } from "../../testData";
 import { addFavoriteBook, useUserContext } from "../User/UserContext";
 
@@ -35,9 +36,13 @@ export const BookDetail = () => {
       {authenticated && (
         <Row as={"section"}>
           <Col>
-            <Button className={"mx-1 h-100"}>
+            <Link
+              to={BOOK_CONTENT_PATH.replace(ID_REPLACER, book.id)}
+              className={"mx-1 h-100"}
+              component={Button}
+            >
               Читать
-            </Button>
+            </Link>
 
             <Button
               className={"mx-1 h-100"}

@@ -5,6 +5,7 @@ export const HOME_PATH = "/";
 
 export const BOOKS_PATH = "/books";
 export const BOOK_DETAILS_PATTERN_PATH = `${BOOKS_PATH}/${ID_REPLACER}`;
+export const BOOK_CONTENT_PATH = `/read/${ID_REPLACER}`;
 
 export const AUTHORS_PATH = "/authors";
 export const AUTHOR_DETAILS_PATTERN_PATH = `${AUTHORS_PATH}/${ID_REPLACER}`;

@@ -1,4 +1,4 @@
-TEXTS = [
+export const TEXTS = [
   {
     id: 1,
     content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget erat massa. Duis id mauris vel mi semper egestas vel nec dolor. Donec ac porttitor est. Nunc in fermentum mauris. Nam et mauris mauris. Nam malesuada mollis sem vel porta. Nam varius dignissim sem, nec suscipit massa egestas in. Mauris gravida urna augue, quis fringilla ex scelerisque in.\n" +
