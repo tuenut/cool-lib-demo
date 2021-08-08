@@ -40,7 +40,7 @@ export const TheLayout = () => {
     <>
       <TheHeadbar/>
 
-      <Container fluid className={"p-0 vw-100 "}>
+      <Container fluid className={"p-0 w-100 "}>
         <Row className={"mb-5"}>
         </Row>
 

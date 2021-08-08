@@ -2,7 +2,7 @@ import React from "react";
 
 import { useLocation, useRouteMatch } from "react-router";
 
-import { Button, Col, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 
 import { withAuthRequired } from "../_lib";
 

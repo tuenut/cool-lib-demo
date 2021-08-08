@@ -20,7 +20,7 @@ export const Home = () => {
   return (
     <>
       <Row as={"header"}>
-        <Col as={"h1"} className="text-center">
+        <Col as={"h1"} xs={12} className="text-center">
           {authenticated ? (
             `Здравствуй, ${userData.username}!`
           ) : (
