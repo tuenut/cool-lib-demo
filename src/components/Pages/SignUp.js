@@ -1,17 +1,13 @@
 import React from "react";
 
-import { Redirect } from "react-router-dom";
+import { Button, Col, Form, Row } from "react-bootstrap";
 
-import { Alert, Button, Col, Form, Row } from "react-bootstrap";
-
-import { withNotAuthenticated } from "../_lib";
+import { withouthAuthRequired } from "../_lib";
 
 import { registerNewUser, useUserContext } from "../User/UserContext";
 
-import { HOME_PATH } from "../../settings/routesPath";
 
-
-export const SignUp = withNotAuthenticated(() => {
+export const SignUp = withouthAuthRequired(() => {
   const [login, setLogin] = React.useState("");
   const [password, setPassword] = React.useState("");
   const [userName, setUserName] = React.useState("");
@@ -28,8 +24,6 @@ export const SignUp = withNotAuthenticated(() => {
     const allFields = [
       login, userName, password, userSex, userPhone, userInfo
     ];
-
-    console.log({allFields});
 
     if ( allFields.every(i => i) ) {
       dispatch(registerNewUser(
@@ -134,7 +128,6 @@ export const SignUp = withNotAuthenticated(() => {
             <Form.Label>Расскажите о себе</Form.Label>
 
             <Form.Control
-              required
               id={"cool-library-info"}
               as={"textarea"}
               rows={7}

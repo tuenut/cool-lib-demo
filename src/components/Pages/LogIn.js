@@ -1,17 +1,17 @@
 import React from "react";
 
-import { Redirect, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { Alert, Button, Col, Form, Row } from "react-bootstrap";
 
-import { withNotAuthenticated } from "../_lib";
+import { withouthAuthRequired } from "../_lib";
 
 import { logInUser, useUserContext } from "../User/UserContext";
 
-import { HOME_PATH, SIGN_UP } from "../../settings/routesPath";
+import { SIGN_UP } from "../../settings/routesPath";
 
 
-export const LogIn = withNotAuthenticated(() => {
+export const LogIn = withouthAuthRequired(() => {
   const [login, setLogin] = React.useState("");
   const [password, setPassword] = React.useState("");
 

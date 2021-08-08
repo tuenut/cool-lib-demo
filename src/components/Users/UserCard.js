@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { Card, Col, ListGroup, Row, Button } from "react-bootstrap";
 
@@ -8,7 +8,7 @@ import { withAuthRequired } from "../_lib";
 
 import { addFriend, removeFriend, useUserContext } from "../User/UserContext";
 
-import { HOME_PATH, PROFILE_EDIT_PATH } from "../../settings/routesPath";
+import { PROFILE_EDIT_PATH } from "../../settings/routesPath";
 
 
 const UserCardContext = React.createContext();
@@ -128,4 +128,4 @@ export const ProfileCard = () => {
 
 export const UserCard = ({user}) => (
   <DefaultUserCard user={user} Actions={UserActions}/>
-)
+);

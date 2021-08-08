@@ -1,1 +1,1 @@
-export { withAuthRequired, withNotAuthenticated } from "./withAuthRequired";
+export { withAuthRequired, withouthAuthRequired } from "./withAuthRequired";

@@ -17,7 +17,7 @@ export const withAuthRequired = (Component) => (props) => {
   }
 };
 
-export const withNotAuthenticated = (Component) => (props) => {
+export const withouthAuthRequired = (Component) => (props) => {
   const [{authenticated}] = useUserContext();
 
   if ( authenticated ) {
