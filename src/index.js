@@ -3,7 +3,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { HashRouter } from "react-router-dom";
 
+import { SWRConfig } from "swr";
+
 import { App } from './components/App';
+
+import swrConfig from "./swrDataHooks/config";
 
 import reportWebVitals from './reportWebVitals';
 
@@ -13,9 +17,15 @@ import "./styles.css";
 
 ReactDOM.render(
   <React.StrictMode>
+
     <HashRouter>
-      <App/>
+      <SWRConfig value={swrConfig}>
+
+        <App/>
+
+      </SWRConfig>
     </HashRouter>
+
   </React.StrictMode>,
   document.getElementById('root')
 );
