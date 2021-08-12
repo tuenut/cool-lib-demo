@@ -9,7 +9,7 @@ import { useUserContext } from "../User/UserContext";
 
 
 export const Home = () => {
-  const [{authenticated, userData}] = useUserContext();
+  // const [{authenticated, userData}] = useUserContext();
 
   const [carouselIndex, setCarouselIndex] = React.useState(0);
 
@@ -21,11 +21,12 @@ export const Home = () => {
     <>
       <Row as={"header"}>
         <Col as={"h1"} xs={12} className="text-center">
-          {authenticated ? (
-            `Здравствуй, ${userData.username}!`
-          ) : (
-            "Добро пожаловать в нашу библиотечку!"
-          )}
+          Добро пожаловать в нашу библиотечку!
+          {/*{authenticated ? (*/}
+          {/*`Здравствуй, ${userData.username}!`*/}
+          {/*) : (*/}
+          {/*"Добро пожаловать в нашу библиотечку!"*/}
+          {/*)}*/}
         </Col>
       </Row>
 

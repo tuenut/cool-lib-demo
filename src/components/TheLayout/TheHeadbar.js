@@ -34,13 +34,13 @@ export const TheHeadbar = () => {
           <Link to={AUTHORS_PATH} component={Nav.Link}>Авторы</Link>
         </Nav>
         <Nav>
-          {authenticated ? (
-            <UserDropdownMenu/>
-          ) : (
-            <Link to={LOGIN_PATH} component={Nav.Link}>
-              Войти
-            </Link>
-          )}
+          {/*{authenticated ? (*/}
+            {/*<UserDropdownMenu/>*/}
+          {/*) : (*/}
+            {/*<Link to={LOGIN_PATH} component={Nav.Link}>*/}
+              {/*Войти*/}
+            {/*</Link>*/}
+          {/*)}*/}
         </Nav>
       </Container>
     </Navbar>

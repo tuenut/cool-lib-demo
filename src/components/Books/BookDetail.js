@@ -17,18 +17,18 @@ export const BookDetail = () => {
 
   const bookId = match.params[ID_KEY];
   const book = BOOKS.find((book) => book.id === parseInt(bookId));
+  // const inFavoties = authenticated &&
+  //   userData.favoriteBooks.find((favBook) => favBook === book.id);
 
-  const inFavoties = authenticated &&
-    userData.favoriteBooks.find((favBook) => favBook === book.id);
+  // const hendleOnAddToFavorites = () => {
+  //   if ( inFavoties ) {
+  //     dispatch(removeFavoriteBook(book.id));
+  //   }
+  //   else {
+  //     dispatch(addFavoriteBook(book.id));
+  //   }
+  // };
 
-  const hendleOnAddToFavorites = () => {
-    if ( inFavoties ) {
-      dispatch(removeFavoriteBook(book.id));
-    }
-    else {
-      dispatch(addFavoriteBook(book.id));
-    }
-  };
 
   return (
     <Container>
@@ -45,28 +45,28 @@ export const BookDetail = () => {
         </Col>
       </Row>
 
-      {authenticated && (
-        <Row as={"section"}>
-          <Col xs={8} className={"m-auto"}>
-            <Link
-              to={BOOK_CONTENT_PATH.replace(ID_REPLACER, book.id)}
-              className={"mx-1 h-100"}
-              component={Button}
-            >
-              Читать
-            </Link>
+      {/*{authenticated && (*/}
+      {/*<Row as={"section"}>*/}
+      {/*<Col xs={8} className={"m-auto"}>*/}
+      {/*<Link*/}
+      {/*to={BOOK_CONTENT_PATH.replace(ID_REPLACER, book.id)}*/}
+      {/*className={"mx-1 h-100"}*/}
+      {/*component={Button}*/}
+      {/*>*/}
+      {/*Читать*/}
+      {/*</Link>*/}
 
-            <Button
-              variant={inFavoties ? "warning" : "secondary"}
-              className={"h-100 "}
-              onClick={hendleOnAddToFavorites}
-            >
-              ★ {!inFavoties ? "В избранное" : "В избранном"}
-            </Button>
-          </Col>
-        </Row>
+      {/*<Button*/}
+      {/*variant={inFavoties ? "warning" : "secondary"}*/}
+      {/*className={"h-100 "}*/}
+      {/*onClick={hendleOnAddToFavorites}*/}
+      {/*>*/}
+      {/*★ {!inFavoties ? "В избранное" : "В избранном"}*/}
+      {/*</Button>*/}
+      {/*</Col>*/}
+      {/*</Row>*/}
 
-      )}
+      {/*)}*/}
     </Container>
   );
 };

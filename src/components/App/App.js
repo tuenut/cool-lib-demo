@@ -18,7 +18,7 @@ export const App = withUserContext(() => {
   const [satte, dispatch] = useUserContext();
 
   React.useEffect(() => {
-    dispatch(verifyUser());
+    // dispatch(verifyUser());
   }, []);
 
   return (
