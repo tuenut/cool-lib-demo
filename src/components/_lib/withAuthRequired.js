@@ -10,6 +10,9 @@ import { HOME_PATH } from "../../settings/routesPath";
 export const withAuthRequired = (Component) => (props) => {
   const [{authenticated}] = useUserContext();
 
+  // todo for dev
+  return ( <Component {...props}/> );
+
   if ( !authenticated ) {
     return ( <Redirect to={HOME_PATH}/> );
   } else {
@@ -19,6 +22,9 @@ export const withAuthRequired = (Component) => (props) => {
 
 export const withouthAuthRequired = (Component) => (props) => {
   const [{authenticated}] = useUserContext();
+
+  // todo for dev
+  return ( <Component {...props}/> );
 
   if ( authenticated ) {
     return ( <Redirect to={HOME_PATH}/> );
