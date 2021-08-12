@@ -3,11 +3,12 @@ import React from "react";
 import { useRouteMatch } from "react-router";
 import { Link } from "react-router-dom";
 
-import { Container, Button, Col, Row } from "react-bootstrap";
+import { Container, Button, Col, Row, Spinner } from "react-bootstrap";
 
 import { BOOK_CONTENT_PATH, ID_KEY, ID_REPLACER } from "../../settings/routesPath";
-import { BOOKS } from "../../testData";
+
 import { addFavoriteBook, removeFavoriteBook, useUserContext } from "../User/UserContext";
+import { useAuthorDetails, useBookDetails } from "../../swrDataHooks";
 
 
 export const BookDetail = () => {
@@ -16,7 +17,8 @@ export const BookDetail = () => {
   const match = useRouteMatch();
 
   const bookId = match.params[ID_KEY];
-  const book = BOOKS.find((book) => book.id === parseInt(bookId));
+  const {data: book, isLoading} = useBookDetails(bookId);
+
   // const inFavoties = authenticated &&
   //   userData.favoriteBooks.find((favBook) => favBook === book.id);
 
@@ -29,12 +31,21 @@ export const BookDetail = () => {
   //   }
   // };
 
+  if ( isLoading ) {
+    return (
+      <Spinner animation="border" role="status">
+        <span className="visually-hidden">
+          Loading...
+        </span>
+      </Spinner>
+    );
+  }
 
   return (
     <Container>
       <Row as={"header"}>
         <Col xs={12} className={"text-center"}>
-          <h3>{book.author.fullName}</h3>
+          <h3>{book.author.full_name}</h3>
           <h1>{book.title}</h1>
         </Col>
       </Row>

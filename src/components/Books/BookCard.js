@@ -12,7 +12,7 @@ import {
 } from "../User/UserContext";
 
 
-const DeafultBookCard = ({book, Actions}) => (
+const DeafultBookCard = ({book, author, Actions}) => (
   <Col xs={3} as={"section"} className={"my-2 align-items-stretch"}>
     <Card className={"h-100"}>
       <Card.Img
@@ -29,7 +29,7 @@ const DeafultBookCard = ({book, Actions}) => (
         </Card.Title>
 
         <Card.Text>
-          {book.author.fullName}
+          {book.author ? book.author.full_name : author.full_name}
         </Card.Text>
       </Card.Body>
       {Actions && (
@@ -86,21 +86,29 @@ const UnauthenticatedActions = ({book}) => (
 );
 
 
-export const BookAuthenticatedCard = ({book}) => (
-  <DeafultBookCard book={book} Actions={AuthenticatedActions}/>
+export const BookAuthenticatedCard = ({book, author}) => (
+  <DeafultBookCard
+    book={book}
+    author={author}
+    Actions={AuthenticatedActions}
+  />
 );
 
-export const BookUnauthenticatedCard = ({book}) => (
-  <DeafultBookCard book={book} Actions={UnauthenticatedActions}/>
+export const BookUnauthenticatedCard = ({book, author}) => (
+  <DeafultBookCard
+    book={book}
+    author={author}
+    Actions={UnauthenticatedActions}
+  />
 );
 
 
-export const BookCard = ({book}) => {
+export const BookCard = ({book, author}) => {
   const [{authenticated}] = useUserContext();
 
   if ( authenticated ) {
-    return ( <BookAuthenticatedCard book={book}/> );
+    return ( <BookAuthenticatedCard book={book} author={author}/> );
   } else {
-    return ( <BookUnauthenticatedCard book={book}/> );
+    return ( <BookUnauthenticatedCard book={book} author={author}/> );
   }
 };

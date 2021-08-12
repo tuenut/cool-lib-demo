@@ -2,6 +2,116 @@
 This is a demo of a simple library site. Created in educational purposes.
 
 
+On current stage UI based on next API schema:
+
+```yaml
+
+/api/v0/books/: 
+  get:
+    description: List of books
+    responses:
+      200:
+        application/json:
+          schema:
+            type: object
+            properties:
+              count: number
+              next: string
+              previous: string
+              results:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id: number
+                    title: string
+                    author:
+                      type: object
+                      properties:
+                        id: number
+                        full_name: string
+/api/v0/books/random/: 
+  get:
+    description: Three random books
+    responses:
+      200:
+        application/json:
+          schema:
+            type: array
+            items:
+              type: object
+              properties:
+                id: number
+                title: string
+                author:
+                  type: object
+                  properties:
+                    id: number
+                    full_name: string
+/api/v0/books/{id}/:
+  get:
+    description: Book details
+    responses:
+      200:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id: number
+              title: string
+              description: string
+              author: 
+                type: object
+                properties:
+                  id: number
+                  full_name: string
+/api/v0/authors/:
+  get:
+    description: List of authors
+    responses:
+      200:
+        application/json:
+          schema:
+            type: object
+            properties:
+              count: number
+              next: string
+              previous: string
+              results:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    id: number
+                    full_name: string
+                    date_of_birth: string
+                    date_of_death: string
+/api/v0/authors/{id}/:
+  get:
+    description: Author details
+    responses:
+      200:
+        application/json:
+          schema:
+            type: object
+            properties:
+              id: number
+              full_name: string
+              first_name: string
+              last_name: string
+              middle_name: string
+              date_of_birth: string
+              date_of_death: string
+              short_biography: string
+              books:
+                type: array
+                items:
+                  type: object
+                  properties: 
+                    id: number
+                    title: sttring
+```
+
 
 # Getting Started with Create React App
 
@@ -33,43 +143,3 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

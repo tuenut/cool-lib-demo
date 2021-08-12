@@ -2,15 +2,28 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
-import { Card, Col, Row } from "react-bootstrap";
+import { Card, Col, Row, Spinner } from "react-bootstrap";
 import {
   AUTHOR_DETAILS_PATTERN_PATH,
   ID_REPLACER
 } from "../../settings/routesPath";
-import { AUTHORS } from "../../testData";
+
+import { useAuthorsList } from "../../swrDataHooks";
 
 
 export const Authors = () => {
+  const {data: authors, isLoading} = useAuthorsList();
+
+  if ( isLoading ) {
+    return (
+      <Spinner animation="border" role="status">
+        <span className="visually-hidden">
+          Loading...
+        </span>
+      </Spinner>
+    );
+  }
+
   return (
     <>
       <Row as={"header"}>
@@ -20,7 +33,7 @@ export const Authors = () => {
       </Row>
 
       <Row className={"d-flex flex-wrap"}>
-        {AUTHORS.map((author) => (
+        {authors.results.map((author) => (
           <Col xs={3} as={"section"} key={author.id} className={"my-2"}>
             <Card className={"h-100"}>
               <Card.Img
@@ -38,10 +51,10 @@ export const Authors = () => {
 
                 <Card.Text>
                   <span className={"text-muted"}>Родился: </span>
-                  {author.dateOfBirth}
+                  {author.date_of_birth}
                   <br/>
                   <span className={"text-muted"}>Умер: </span>
-                  {author.dateOfDeath}
+                  {author.date_of_death}
                 </Card.Text>
               </Card.Body>
 

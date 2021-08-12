@@ -2,14 +2,18 @@ import React from "react";
 
 import { Link } from "react-router-dom";
 
-import { Carousel, Col, Row } from "react-bootstrap";
+import { Carousel, Col, Row, Spinner } from "react-bootstrap";
+
 import { BOOK_DETAILS_PATTERN_PATH, ID_REPLACER } from "../../settings/routesPath";
-import { BOOKS } from "../../testData";
+
 import { useUserContext } from "../User/UserContext";
+import { useAuthorDetails, useRandomBooks } from "../../swrDataHooks";
 
 
 export const Home = () => {
   // const [{authenticated, userData}] = useUserContext();
+
+  const {data: books, isLoading} = useRandomBooks();
 
   const [carouselIndex, setCarouselIndex] = React.useState(0);
 
@@ -40,10 +44,15 @@ export const Home = () => {
             activeIndex={carouselIndex}
             onSelect={handleSelect}
           >
-            {BOOKS
-              .slice(0, 3)
-              .map((book) => (
-                <Carousel.Item key={book.id}>
+            {isLoading ? (
+              <Spinner animation="border" role="status">
+                  <span className="visually-hidden">
+                    Loading...
+                  </span>
+              </Spinner>
+            ) : (
+              books.map((book) => (
+                <Carousel.Item>
                   <Link
                     className="d-block bg-dark w-100"
                     to={BOOK_DETAILS_PATTERN_PATH.replace(ID_REPLACER, book.id)}
@@ -55,12 +64,12 @@ export const Home = () => {
                     />
 
                     <Carousel.Caption>
-                      <p>{book.author.fullName}</p>
+                      <p>{book.author.full_name}</p>
                       <h3>{book.title}</h3>
                     </Carousel.Caption>
                   </Link>
                 </Carousel.Item>
-              ))}
+              )) )}
           </Carousel>
         </Col>
       </Row>

@@ -1,7 +1,8 @@
 import axios from "axios";
 
+import { API_HOST } from "./urls";
 
-export const API_HOST = "http://localhost:8000"
+
 axios.defaults.baseURL = API_HOST;
 
 
